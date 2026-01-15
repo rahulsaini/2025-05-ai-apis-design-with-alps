@@ -1,0 +1,52 @@
+<div class="page">
+  <header class="hero">
+    <div>
+      <p class="eyebrow">Timeline Carousel</p>
+      <h1>Experience the story in chronological slides.</h1>
+      <p class="subtitle">
+        Browse milestone imagery with an interactive timeline that keeps your narrative
+        in sync with each moment.
+      </p>
+    </div>
+    <div class="actions">
+      <button class="secondary" (click)="previous()">Previous</button>
+      <button class="primary" (click)="next()">Next</button>
+    </div>
+  </header>
+
+  <section class="carousel" *ngIf="timeline.length">
+    <div class="carousel-frame">
+      <img
+        [src]="timeline[activeIndex].imageUrl"
+        [alt]="timeline[activeIndex].title"
+      />
+      <div class="carousel-card">
+        <h2>{{ timeline[activeIndex].title }}</h2>
+        <p>{{ timeline[activeIndex].description }}</p>
+        <div class="meta">
+          <span>{{ timeline[activeIndex].date | date: 'MMM d, y' }}</span>
+          <span>•</span>
+          <span>{{ timeline[activeIndex].location }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-track"></div>
+      <button
+        *ngFor="let item of timeline; let i = index"
+        type="button"
+        class="timeline-node"
+        [class.active]="i === activeIndex"
+        (click)="setActive(i)"
+      >
+        <span>{{ item.date | date: 'yyyy' }}</span>
+        <small>{{ item.title }}</small>
+      </button>
+    </div>
+  </section>
+
+  <section class="empty" *ngIf="!timeline.length">
+    <p>Loading timeline...</p>
+  </section>
+</div>
