@@ -1,0 +1,176 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-end;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  color: #5f6b8a;
+  margin: 0 0 8px;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: 36px;
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin: 0;
+  color: #44516b;
+  max-width: 480px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.primary {
+  background: #1f4acc;
+  color: white;
+}
+
+button.secondary {
+  background: white;
+  color: #1f4acc;
+  border: 1px solid #c8d2f0;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.carousel-frame {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(19, 33, 68, 0.2);
+}
+
+.carousel-frame img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-card {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 20px 24px;
+  border-radius: 16px;
+  max-width: 360px;
+  box-shadow: 0 10px 30px rgba(19, 33, 68, 0.12);
+}
+
+.carousel-card h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.carousel-card p {
+  margin: 0 0 12px;
+  color: #4d5b73;
+}
+
+.meta {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+  color: #6c7891;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+.timeline-track {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #d6deef;
+  z-index: 0;
+}
+
+.timeline-node {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.timeline-node span {
+  display: inline-block;
+  background: #1f4acc;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  margin-bottom: 8px;
+  box-shadow: 0 6px 12px rgba(31, 74, 204, 0.3);
+}
+
+.timeline-node small {
+  display: block;
+  color: #44516b;
+  font-weight: 600;
+}
+
+.timeline-node.active span {
+  background: #f77f00;
+  box-shadow: 0 6px 12px rgba(247, 127, 0, 0.3);
+}
+
+.empty {
+  padding: 40px;
+  text-align: center;
+  border: 2px dashed #c8d2f0;
+  border-radius: 16px;
+  color: #6c7891;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .carousel-card {
+    position: static;
+    margin: -60px 24px 24px;
+  }
+}
